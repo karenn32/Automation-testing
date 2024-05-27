@@ -6,48 +6,48 @@ class OverwiewPage extends Page {
     /**
      * define selectors using getter methods
      */
-    
-    get item () {
+
+    get item() {
         return $('div[data-test="inventory-item-name"]');
     }
 
-    get allPrices (){
+    get allPrices() {
         return $$('div[data-test="inventory-item-price"]');
     }
 
 
-    get subtotal (){
+    get subtotal() {
         return $('div[data-test="subtotal-label"]');
     }
 
-    get tax (){
+    get tax() {
         return $('div[data-test="tax-label"]');
     }
 
-    get total (){
+    get total() {
         return $('div[data-test="total-label"]');
     }
 
-    get finishBtn (){
+    get finishBtn() {
         return $('button[data-test="finish"]');
     }
 
-    get cancelBtn (){
+    get cancelBtn() {
         return $('button[data-test="cancel"]');
     }
-    open () {
+    open() {
         return super.open('checkout-step-two.html');
     }
 
-    async calculateTotal (){
+    async calculateTotal() {
         const prices = await this.allPrices.map(async (item) => {
             const priceText = await item.getText();
             return Number(getNumberFromString(priceText))
-        }); 
+        });
         return prices.reduce((sum, price) => sum + price, 0);
     }
 
-  
+
     async isOpen() {
         const url = await browser.getUrl();
         return url.includes('checkout-step-two.html');

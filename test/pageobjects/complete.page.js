@@ -5,20 +5,20 @@ class CompletePage extends Page {
     /**
      * define selectors using getter methods
      */
-    
-    get completeContainer (){
+
+    get completeContainer() {
         return $('div[data-test="checkout-complete-container"]');
     }
-    
-    get completeHeader () {
+
+    get completeHeader() {
         return $('h2[data-test="complete-header"]');
     }
 
-    get completeText (){
+    get completeText() {
         return $('div[data-test="complete-text"]');
     }
 
-    get backBtn (){
+    get backBtn() {
         return $('button[data-test="back-to-products"]');
     }
 
@@ -27,7 +27,7 @@ class CompletePage extends Page {
         return url.includes('checkout-complete.html');
     }
 
-    open () {
+    open() {
         return super.open('checkout-complete.html');
     }
 

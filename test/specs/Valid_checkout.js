@@ -47,7 +47,7 @@ describe('Valid checkout test', () => {
         const actualTotalPrice = Number(getNumberFromString(totalAmountText))
         const taxAmmountText = await OverviewPage.tax.getText()
         const taxAmmount = Number(getNumberFromString(taxAmmountText))
-        const calculatedTotalPrice = await OverviewPage.calculateTotal() + taxAmmount        
+        const calculatedTotalPrice = await OverviewPage.calculateTotal() + taxAmmount
         // console.log('Calculated', calculatedTotalPrice)
         // console.log('Aactual', actualTotalPrice)
         expect(calculatedTotalPrice).toEqual(actualTotalPrice)

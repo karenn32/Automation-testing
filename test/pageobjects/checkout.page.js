@@ -5,32 +5,32 @@ class CheckoutPage extends Page {
     /**
      * define selectors using getter methods
      */
-    
-    get checkoutForm () {
+
+    get checkoutForm() {
         return $('div[data-test="checkout-info-container"]');
     }
 
-    get continueBtn (){
+    get continueBtn() {
         return $('input[data-test="continue"]');
     }
 
-    get firstName (){
+    get firstName() {
         return $('input[data-test="firstName"]');
     }
 
-    get lastName (){
+    get lastName() {
         return $('input[data-test="lastName"]');
     }
 
-    get postalCode (){
+    get postalCode() {
         return $('input[data-test="postalCode"]');
     }
 
-    get cancelBtn (){
+    get cancelBtn() {
         return $('button[data-test="cancel"]');
     }
 
-    open () {
+    open() {
         return super.open('checkout-step-one.html');
     }
 

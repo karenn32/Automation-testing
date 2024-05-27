@@ -11,7 +11,7 @@ describe('Inventory Sort test', async () => {
 
     it('should sort items by name from Z to A', async () => {
         await inventoryPage.sort.selectByAttribute('value', 'za')
-        const itemNameTexts =  await InventoryPage.allItems.map((item) => item.getText())  
+        const itemNameTexts = await InventoryPage.allItems.map((item) => item.getText())
         //console.log('check names ZA', itemNameTexts)
         const sortedNames = [...itemNameTexts].sort((a, b) => b.localeCompare(a))
         expect(itemNameTexts).toEqual(sortedNames)
@@ -19,7 +19,7 @@ describe('Inventory Sort test', async () => {
 
     it('should sort items by name from A to Z', async () => {
         await inventoryPage.sort.selectByAttribute('value', 'az')
-        const itemNameTexts =  await InventoryPage.allItems.map((item) => item.getText())  
+        const itemNameTexts = await InventoryPage.allItems.map((item) => item.getText())
         //console.log('check names AZ', itemNameTexts)
         const sortedNames = [...itemNameTexts].sort((a, b) => a.localeCompare(b))
         expect(itemNameTexts).toEqual(sortedNames)
@@ -30,9 +30,9 @@ describe('Inventory Sort test', async () => {
         const itemPrices = await InventoryPage.allPrices.map(async (item) => {
             const priceText = await item.getText();
             return parseFloat(priceText.replace('$', ''));
-        });  
+        });
         //console.log('check price', itemPrices)
-        const sortedPrices = [...itemPrices].sort((a, b) => a-b)
+        const sortedPrices = [...itemPrices].sort((a, b) => a - b)
         expect(itemPrices).toEqual(sortedPrices)
     });
 
@@ -41,9 +41,9 @@ describe('Inventory Sort test', async () => {
         const itemPrices = await InventoryPage.allPrices.map(async (item) => {
             const priceText = await item.getText();
             return parseFloat(priceText.replace('$', ''));
-        });  
-       // console.log('check price', itemPrices)
-        const sortedPrices = [...itemPrices].sort((a, b) => b-a)
+        });
+        // console.log('check price', itemPrices)
+        const sortedPrices = [...itemPrices].sort((a, b) => b - a)
         expect(itemPrices).toEqual(sortedPrices)
     });
 });

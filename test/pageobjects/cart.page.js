@@ -5,16 +5,16 @@ class CartPage extends Page {
     /**
      * define selectors using getter methods
      */
-    
-    get item () {
+
+    get item() {
         return $('div[data-test="inventory-item-name"]');
     }
 
-    get checkoutBtn (){
+    get checkoutBtn() {
         return $('button[data-test="checkout"]');
     }
 
-    open () {
+    open() {
         return super.open('cart.html');
     }
 

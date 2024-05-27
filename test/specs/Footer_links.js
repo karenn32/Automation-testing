@@ -76,6 +76,6 @@ describe('Footer link test', () => {
         await browser.switchToWindow(originalWindowHandle);
     });
 
-    
-    
+
+
 })
