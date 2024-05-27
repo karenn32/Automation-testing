@@ -40,7 +40,6 @@ class OverwiewPage extends Page {
     }
 
     async calculateTotal (){
-        //const pricesText = this.allPrices
         const prices = await this.allPrices.map(async (item) => {
             const priceText = await item.getText();
             return Number(getNumberFromString(priceText))
@@ -48,15 +47,7 @@ class OverwiewPage extends Page {
         return prices.reduce((sum, price) => sum + price, 0);
     }
 
-    // async getTaxAmmount (){
-    //     const taxText = $('div[data-test="inventory-item-price"]');
-    //     const prices = await pricesText.map(async (item) => {
-    //         const priceText = await item.getText();
-    //         return parseFloat(priceText.replace('$', ''));
-    //     }); 
-    //     return prices.reduce((sum, price) => sum + price, 0);
-    // }
-
+  
     async isOpen() {
         const url = await browser.getUrl();
         return url.includes('checkout-step-two.html');
