@@ -1,18 +1,18 @@
 
-import LoginPage from '../pageobjects/login.page.js'
-import InventoryPage from '../pageobjects/inventory.page.js'
+import loginPage from '../pageobjects/login.page.js'
+import inventoryPage from '../pageobjects/inventory.page.js'
 
 describe('Footer link test', () => {
     before(async () => {
-        await LoginPage.open()
-        await LoginPage.login('standard_user', 'secret_sauce')
+        await loginPage.open()
+        await loginPage.login('standard_user', 'secret_sauce')
     });
 
     it('should check that Twitter opens in new tab', async () => {
-        const isInventoryPageOpen = await InventoryPage.isOpen()
+        const isInventoryPageOpen = await inventoryPage.isOpen()
         await expect(isInventoryPageOpen).toBe(true)
         const originalWindowHandle = await browser.getWindowHandle();
-        await InventoryPage.twitter.click();
+        await inventoryPage.twitter.click();
         await browser.waitUntil(
             async () => (await browser.getWindowHandles()).length === 2,
             {
@@ -31,10 +31,10 @@ describe('Footer link test', () => {
     });
 
     it('should check that Facebook opens in new tab', async () => {
-        const isInventoryPageOpen = await InventoryPage.isOpen()
+        const isInventoryPageOpen = await inventoryPage.isOpen()
         await expect(isInventoryPageOpen).toBe(true)
         const originalWindowHandle = await browser.getWindowHandle();
-        await InventoryPage.facebook.click();
+        await inventoryPage.facebook.click();
 
         await browser.waitUntil(
             async () => (await browser.getWindowHandles()).length === 2,
@@ -54,10 +54,10 @@ describe('Footer link test', () => {
     });
 
     it('should check that LinkedIn opens in new tab', async () => {
-        const isInventoryPageOpen = await InventoryPage.isOpen()
+        const isInventoryPageOpen = await inventoryPage.isOpen()
         await expect(isInventoryPageOpen).toBe(true)
         const originalWindowHandle = await browser.getWindowHandle();
-        await InventoryPage.linkedin.click();
+        await inventoryPage.linkedin.click();
 
         await browser.waitUntil(
             async () => (await browser.getWindowHandles()).length === 2,

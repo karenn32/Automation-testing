@@ -1,18 +1,18 @@
 
-import LoginPage from '../pageobjects/login.page.js'
-import InventoryPage from '../pageobjects/inventory.page.js'
+import loginPage from '../pageobjects/login.page.js'
+import inventoryPage from '../pageobjects/inventory.page.js'
 
 describe('Login valid user test', () => {
     it('should check that password is secured', async () => {
-        await LoginPage.open()
-        await expect(LoginPage.inputPassword).toHaveAttribute('type', 'password')
+        await loginPage.open()
+        await expect(loginPage.inputPassword).toHaveAttribute('type', 'password')
     })
 
     it('should check that user is logged in', async () => {
-        await LoginPage.login('standard_user', 'secret_sauce')
-        const isInventoryPageOpen = await InventoryPage.isOpen()
+        await loginPage.login('standard_user', 'secret_sauce')
+        const isInventoryPageOpen = await inventoryPage.isOpen()
         await expect(isInventoryPageOpen).toBe(true)
-        await expect(InventoryPage.item).toBePresent()
-        await expect(InventoryPage.cartLink).toBePresent()
+        await expect(inventoryPage.item).toBePresent()
+        await expect(inventoryPage.cartLink).toBePresent()
     })
 })
