@@ -1,5 +1,5 @@
 import InventoryPage from '../pageobjects/inventory.page.js'
-import { expect } from '@wdio/globals'
+
 import LoginPage from '../pageobjects/login.page.js'
 import inventoryPage from '../pageobjects/inventory.page.js';
 

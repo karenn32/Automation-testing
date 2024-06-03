@@ -1,4 +1,4 @@
-import { expect } from '@wdio/globals'
+
 import LoginPage from '../pageobjects/login.page.js'
 import { generateRandomString } from '../../utils/random.js'
 
